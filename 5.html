@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D旋转</title>
+    <style>
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    ul,ol{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    div{
+        margin: 100px auto;
+        position: relative;
+        perspective: 900px;
+       
+        /* 晕 */
+    }
+    div,ul,ul>li,img{
+        width: 300px;
+        height: 200px;
+    }
+    ul{
+        position: relative;
+        /* transform: rotateX(-45deg); */
+        transform-style: preserve-3d;
+        transform: translateZ(-260px);
+        animation-name:rotate;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+    }
+    ul>li{
+        position: absolute;
+        left: 0;
+    }
+    ul>li:nth-of-type(1){
+        transform: rotateY(0deg) translateZ(260px);
+    }
+    ul>li:nth-of-type(2){
+        transform: rotateY(60deg) translateZ(260px);
+    }
+    ul>li:nth-of-type(3){
+        transform: rotateY(120deg)translateZ(260px);
+    }
+    ul>li:nth-of-type(4){
+        transform: rotateY(180deg)translateZ(260px);
+    }
+    ul>li:nth-of-type(5){
+        transform: rotateY(240deg)translateZ(260px);
+    }
+    ul>li:nth-of-type(6){
+        transform: rotateY(300deg)translateZ(260px);
+    }
+
+@keyframes rotate{
+    0%{
+        transform: translateZ(-260px) rotateY(0deg) ;
+    }
+
+    16%{ transform: translateZ(-260px) rotateY(60deg)}
+    
+    32%{ transform: translateZ(-260px) rotateY(120deg)}
+
+    48%{ transform: translateZ(-260px) rotateY(180deg)}
+
+    64%{ transform: translateZ(-260px) rotateY(240deg)}
+
+    80%{ transform: translateZ(-260px) rotateY(300deg)}
+
+    100%{ transform: translateZ(-260px) rotateY(360deg)}
+
+
+}
+    ol{
+        position: absolute;
+        bottom: 10px;
+        display: flex;
+        left: 50%;
+        transform:translateX(-50%);
+    }
+    ol li,ol::after{
+        width: 25px;
+        height: 25px;
+        background-color: rgba(0,0,0,0.4);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+    ol li:nth-of-type(n+2){
+        margin-left: 10px;
+    }
+    ol::after{
+        content: '';
+        background-color:rgba(255,0,0,0.5);
+        position: absolute;
+        left: 0;
+        animation-name:move;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+        animation-delay: -2s;
+        animation-timing-function: steps(6,end);
+        
+    }
+    @keyframes move{
+        100%{
+            transform: translateX(210px);
+        }
+    }
+
+    </style>
+
+</head>
+<body>
+    <div>
+    <ul>
+        <li><img src="img/1.png" ></li>
+        <li><img src="img/2.png"></li>
+        <li><img src="img/3.png" ></li>
+        <li><img src="img/4.png" ></li>
+        <li><img src="img/5.png" ></li>
+        <li><img src="img/6.png" ></li>   
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+       
+        
+    </ol>
+    </div>
+</body>
+</html>
